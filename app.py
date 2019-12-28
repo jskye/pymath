@@ -3,6 +3,22 @@ import wikipedia
 
 app = Flask(__name__)
 
+def getobjnet(name):
+    if name == "Hexahedron":
+        url = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Hexahedron_flat_color.svg/240px-Hexahedron_flat_color.svg.png"
+    elif name == "Octahedron":
+        url = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Octahedron_flat.svg/240px-Octahedron_flat.svg.png"
+    elif name == "Tetrahedron":
+        url = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Tetrahedron_flat.svg/240px-Tetrahedron_flat.svg.png"
+    elif name == "Icosahedron":
+        url = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Icosahedron_flat.svg/240px-Icosahedron_flat.svg.png"
+    elif name == "Dodecahedron":
+        url = "https:/upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Dodecahedron_flat.svg/240px-Dodecahedron_flat.svg.png"
+    else:
+        url = "/"
+    return url
+
+
 def getobjdef(name):
     objdef = wikipedia.WikipediaPage(title = name).summary
     return objdef
@@ -35,7 +51,7 @@ def math():
 def object(name):
     print(name)
     return render_template(
-    'object.html',name=name, imgurl=getobjectimg(name), objdef=getobjdef(name))
+    'object.html',name=name, imgurl=getobjectimg(name), objdef=getobjdef(name), objnet=getobjnet(name))
 
 
 if __name__ == "__main__":
