@@ -1,5 +1,6 @@
 # pymath
  basic flask app to show basic math objects like platonic solids
+ based on start of tutorial here: https://pythonspot.com/flask-web-app-with-python/
 
 For more info on scraping wikipedia:
 https://medium.com/@Alexander_H/scraping-wikipedia-with-python-8000fc9c9e6c
