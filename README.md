@@ -1,2 +1,2 @@
 # pymath
- flask server with some math stuff
+ basic flask app
