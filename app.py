@@ -1,6 +1,11 @@
 from flask import Flask, flash, redirect, render_template, request, session, abort
+import wikipedia
 
 app = Flask(__name__)
+
+def getobjdef(name):
+    objdef = wikipedia.WikipediaPage(title = name).summary
+    return objdef
 
 def getobjectimg(name, url="/"):
     if name == "Hexahedron":
@@ -30,7 +35,7 @@ def math():
 def object(name):
     print(name)
     return render_template(
-    'object.html',name=name, imgurl=getobjectimg(name))
+    'object.html',name=name, imgurl=getobjectimg(name), objdef=getobjdef(name))
 
 
 if __name__ == "__main__":
